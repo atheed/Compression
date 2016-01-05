@@ -1,2 +1,2 @@
-# CompressionLibrary
+# Compy
 In progress...
