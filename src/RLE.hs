@@ -78,6 +78,8 @@ convert lst = map (\(a, b) -> (a, read b :: Int)) lst
 
 {-
 USAGE:
+Uncomment this section to try the RLE Encoder/Decoder for yourself
+
 main :: IO ()
 main = do
     putStr "String to encode: "
