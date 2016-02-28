@@ -1,2 +1,2 @@
 # Compression
-In progress...
+In progress.
