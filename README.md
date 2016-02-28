@@ -1,2 +1,2 @@
-# Compy
+# Compression
 In progress...
