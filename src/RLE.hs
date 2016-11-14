@@ -42,7 +42,8 @@ rleDecode str =
             (convert $ unencode (group str) "" "" [])
 
 
--- Returns a list like: [("a","3"),("b","1"),("f","14"),("k","2")]
+-- Takes in a list like ["a","3","b","1","f","1","4","k","2"], and uses accumulators to eventually
+-- Return a list like: [("a","3"),("b","1"),("f","14"),("k","2")]
 unencode :: [String] -> String -> String -> [(String, String)] -> [(String, String)]
 unencode [] [] [] built = built
 unencode [] strAcc numAcc built = built ++ [(strAcc, numAcc)]
