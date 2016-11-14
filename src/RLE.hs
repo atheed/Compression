@@ -33,18 +33,17 @@ Run-length decoding
 =========================================================
 -}
 
--- Takes in a String, like "a3b1f4k2"
--- Returns a String, like "aaabffffkk"
+-- Takes in a String, like "a3b1f14k2"
+-- Returns a String, like "aaabffffffffffffffkk"
 rleDecode :: String -> String
 rleDecode str = 
     concat $
-        concatMap (\(a, b) -> replicate b a) 
+        concatMap (\(a, b) -> replicate b a)
             (convert $ unencode (group str) "" "" [])
 
 
--- Returns list like: [("a","3"),("b","1"),("f","14"),("k","2")]
-unencode :: [String] -> String -> String -> 
-                [(String, String)] -> [(String, String)]
+-- Returns a list like: [("a","3"),("b","1"),("f","14"),("k","2")]
+unencode :: [String] -> String -> String -> [(String, String)] -> [(String, String)]
 unencode [] [] [] built = built
 unencode [] strAcc numAcc built = built ++ [(strAcc, numAcc)]
 unencode (x:xs) strAcc numAcc built =
@@ -52,9 +51,9 @@ unencode (x:xs) strAcc numAcc built =
         then
             if strAcc == ""
                 then
-                    unencode xs "" "" built 
+                    unencode xs "" "" built
                 else 
-                    unencode xs strAcc (numAcc++x) built
+                    unencode xs strAcc (numAcc ++ x) built
         else 
             if strAcc == ""
                 then
